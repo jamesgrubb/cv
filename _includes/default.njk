@@ -4,7 +4,7 @@
     <title>
       {% block title %}Does it work?{% endblock %}
     </title>
-    <meta charset="UTF-8"/>
+    <meta charset="utf-8"/>
     {% if description %}
       <meta name="description" content="{{description}}"/>
     {% endif %}
@@ -16,7 +16,9 @@
   </head>
   <body>
     {% block content %}
-      {{ content | safe }}
+      <main class="container">
+        {{ content | safe }}
+      </main>
     {% endblock %}
   </body>
 </html>

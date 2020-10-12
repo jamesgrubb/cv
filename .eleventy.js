@@ -1,6 +1,17 @@
 const htmlmin = require("html-minifier");
+const markdownIt = require("markdown-it");
 
 module.exports = function (eleventyConfig) {
+
+  const md = new markdownIt({
+    html: true
+  });
+
+  eleventyConfig.addPairedShortcode("markdown", (content) => {
+    return md.render(content);
+  });
+
+
   eleventyConfig.setUseGitIgnore(false);
 
   eleventyConfig.addWatchTarget("./_tmp/style.css");
