@@ -11,9 +11,11 @@ const getJobs = async () => {
         const records = await
             table
                 .select({
-                    maxRecords: 3,
+                    maxRecords: 20,
+                    sort: [{field: "from", direction: "desc"}]
                 })
                 .firstPage()
+                
         return records
     }
     catch (err) {
@@ -21,8 +23,7 @@ const getJobs = async () => {
     }
 }
 
-module.exports = async function () {
-
+module.exports = async function () {    
     let jobs = await getJobs();
     console.log(jobs)
     return jobs;

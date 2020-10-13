@@ -1,14 +1,30 @@
 {% extends "_includes/default.njk" %}
 {% block title %}James Gurbb{% endblock %}
+{% block header  %}
+{% include "./_includes/_header.njk" %}
+{%endblock%}
 {% block content %}
-  <div class="container">
+
+  <main class="w-3/5">
     {% for item in resume %}
-      <div data-value="{{item.key}}" class="font-bold">
+  <div class="my-4">  
+      <div class="font-serif mb-1 mt-3" data-bind="html: dates">
+      {{ item.fields.from }} - {{item.fields.to}}
+      </div>
+      <div class="mb-1">
+      <div class="text-xs uppercase px-3 py-1 mb-1 bg-gray-200 rounded-full inline-block" data-bind="text: jobTitle">
+      {{ item.fields.jobTitle}}      
+      </div>
+      <div data-bind="text: companyName" class="font-bold">
       {{ item.fields.companyName}}
       </div>
+      </div>
+      <div class="text-sm divide-y-2">
       {%- markdown -%}
       {{item.fields.responsibilities | safe}}
       {%- endmarkdown -%}
+      </div>    
+    </div>
     {% endfor %}
-  </div>
+  </main>
 {% endblock %}

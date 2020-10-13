@@ -1,5 +1,6 @@
 const htmlmin = require("html-minifier");
 const markdownIt = require("markdown-it");
+const parseIso = require('date-fns/parseISO')
 
 module.exports = function (eleventyConfig) {
 
@@ -10,6 +11,11 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPairedShortcode("markdown", (content) => {
     return md.render(content);
   });
+
+  eleventyConfig.addNunjucksFilter("dateFormatter", function(value) {
+    
+    return parseIso(value,  { additionalDigits: 1 })
+   });
 
 
   eleventyConfig.setUseGitIgnore(false);

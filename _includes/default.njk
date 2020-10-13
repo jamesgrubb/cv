@@ -14,11 +14,19 @@
     {% block head %}{% endblock %}
     <script src="/js/alpine.js?v={% version %}"></script>
   </head>
-  <body>
+  <body class="text-gray-900">
+  <div class="container sm:flex">
+  <header class="w-1/5 mr-auto">
+  {%block header%}
+  
+  
+  {%endblock%}
+  </header>
     {% block content %}
-      <main class="container">
+          
         {{ content | safe }}
-      </main>
+      
     {% endblock %}
+    </div>
   </body>
 </html>
