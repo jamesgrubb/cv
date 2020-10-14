@@ -4,7 +4,16 @@ Airtable.configure({
     apiKey: process.env.AIRTABLE_SECRET
 });
 var base = Airtable.base('app8XPj1PDczqby8i');
-const table = base('jobs')
+const table = base('resume')
+const lettersTable = base('applications')
+
+const getApplications = async () => {
+    try{
+        const applicationLetters = await table.select().firstPage()
+        return applicationLetters
+    }
+    catch(err){console.error(err)}
+}
 
 const getJobs = async () => {
     try {
@@ -23,8 +32,9 @@ const getJobs = async () => {
     }
 }
 
-module.exports = async function () {    
+module.exports = async function () {
+    let applications = await getApplications()    
     let jobs = await getJobs();
-    console.log(jobs)
-    return jobs;
+    
+    return [jobs, applications];
 };

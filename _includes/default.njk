@@ -5,6 +5,7 @@
       {% block title %}Does it work?{% endblock %}
     </title>
     <meta charset="utf-8"/>
+    {% seo "" %}
     {% if description %}
       <meta name="description" content="{{description}}"/>
     {% endif %}
@@ -14,14 +15,8 @@
     {% block head %}{% endblock %}
     <script src="/js/alpine.js?v={% version %}"></script>
   </head>
-  <body class="text-gray-900">
-  <div class="container sm:flex">
-  <header class="w-1/5 mr-auto">
-  {%block header%}
-  
-  
-  {%endblock%}
-  </header>
+  <body class="text-gray-900 h-full">
+  <div class="container sm:flex h-full">
     {% block content %}
           
         {{ content | safe }}

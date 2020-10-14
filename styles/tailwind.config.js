@@ -1,4 +1,5 @@
 
+
 module.exports = {
   future: {
     removeDeprecatedGapUtilities: true,
@@ -16,9 +17,9 @@ module.exports = {
       padding: theme("spacing.4")
     }),
     extend: {
-      fontFamily:{
-        modernsans: ["Exo", 'sans-serif'],
-      },
+      screens: {
+        'print': {'raw': 'print'},
+      }
     },
   },
   variants: {},

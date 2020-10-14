@@ -15,6 +15,7 @@
     "airtable": "^0.10.0",
     "date-fns": "^2.16.1",
     "dotenv": "^8.2.0",
+    "eleventy-plugin-seo": "^0.5.1",
     "markdown-it-attrs": "^3.0.3",
     "typeface-exo": "^1.1.13"
   }

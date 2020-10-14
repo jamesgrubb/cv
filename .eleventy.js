@@ -1,12 +1,22 @@
 const htmlmin = require("html-minifier");
 const markdownIt = require("markdown-it");
+const markdownItAttrs = require('markdown-it-attrs')
 const parseIso = require('date-fns/parseISO')
+const pluginSeo = require('eleventy-plugin-seo')
 
 module.exports = function (eleventyConfig) {
 
   const md = new markdownIt({
-    html: true
-  });
+    html: true,
+    breaks: true,
+    linkify: true
+  }).use(markdownItAttrs);
+
+  eleventyConfig.addPlugin(pluginSeo, require("./_data/seo.json"))
+
+  eleventyConfig.addNunjucksFilter("prettyUrl", (value) => {    
+    return value.replace(/^(https?:|)\/\//,'')
+  })
 
   eleventyConfig.addPairedShortcode("markdown", (content) => {
     return md.render(content);
