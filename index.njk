@@ -5,17 +5,29 @@
 {%endblock%}
 {% block content %}
 <div class="print:hidden pointer-events-none fixed top-0 inset-x-0 h-32 bg-gradient-to-b from-white via-white to-transparent z-10"></div>
-<div class="hidden sm:fixed pointer-events-none bottom-0 transform inset-x-0 h-32 bg-gradient-to-b from-transparent via-white to-white z-10"></div>
+<div class="hidden sm:block sm:fixed pointer-events-none bottom-0 transform inset-x-0 h-32 bg-gradient-to-b from-transparent via-white to-white z-10"></div>
 <header class="sm:w-2/5 flex flex-col top-0 sticky self-start transform justify-center z-10">
-<div class="mt-4 sm:mt-0 sm:h-screen sm:flex flex-col justify-center">
-  {%  include "_header.njk" %}  
-</div>
-  </header>
+  <div class="mt-4 sm:mt-0 sm:h-screen sm:flex flex-col justify-between py-8 pr-8">
+  <div class="mt-24">
+    {%  include "_header.njk" %}  
+    </div>
+  </div>
+</header>
 
   <main class="mt-64 sm:mt-0 sm:w-3/5 sm:ml-auto">
-  
-    {% for item in resume %}
-  <div class="my-4 font">  
+  <section>
+  {% for item in resume.applications %}
+    <header class="font-bold mt-32 mb-8">
+    {{ item.fields.Job }}
+    </header>
+    
+    {%- markdown -%}
+    {{ item.fields.application | safe }} {.text-gray-600 .divide-y-2 .mb-4}
+    {%- endmarkdown -%}
+    {% endfor %}
+  </section>
+    {% for item in resume.jobs %}
+  <section class="my-4 font">  
       <div class="font-serif mb-1 mt-3" data-bind="html: dates">
       {{ item.fields.from }} - {{item.fields.to}}
       </div>
@@ -32,7 +44,7 @@
       {{item.fields.responsibilities  | safe}}{.text-gray-600 .divide-y-2}
       {%- endmarkdown -%}
       </div>    
-    </div>
+    </section>
     {% endfor %}
   </main>
 {% endblock %}

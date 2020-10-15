@@ -9,8 +9,8 @@ const lettersTable = base('applications')
 
 const getApplications = async () => {
     try{
-        const applicationLetters = await table.select().firstPage()
-        return applicationLetters
+        const letters = await lettersTable.select().firstPage()
+        return letters
     }
     catch(err){console.error(err)}
 }
@@ -35,6 +35,6 @@ const getJobs = async () => {
 module.exports = async function () {
     let applications = await getApplications()    
     let jobs = await getJobs();
-    
-    return [jobs, applications];
+    console.log(applications,jobs)
+    return {jobs: jobs, applications: applications};
 };
