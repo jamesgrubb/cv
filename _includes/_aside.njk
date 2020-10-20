@@ -1,12 +1,4 @@
-{% extends "_includes/default.njk" %}
-{% block title %}James Grubb{% endblock %}
-{% block header  %}
-{% include "./_includes/_header.njk" %}
-{%endblock%}
-{% block content %}
-<div class="container sm:flex w-full flex-wrap h-full">
-  <main class="mt-64 sm:mt-12 lg:w-3/5 sm:ml-auto">
-  {% set me = globals.name %}
+{% set me = globals.name %}
 <aside>
     <p>{{ me }} </p>
 <address class="flex flex-col not-italic">
@@ -16,13 +8,6 @@
     <a href="{{ dets.web }}">{{ dets.web | prettyUrl }}</a>    
 {% endfor %}
 </address>
-<div class="letter">
-{% for item in resume.applications %}
-{% markdown %}
-{{item.fields.letter}}
-{% endmarkdown %}
-{% endfor %}
-</div>
 {% for item in resume.jobs %}
   <article class="my-4">  
       <div class="font-serif mb-1 mt-3" data-bind="html: dates">
@@ -32,19 +17,16 @@
       <div class="expanded tracking-wider text-xs uppercase -ml-3 px-3 py-1 mb-1 bg-gray-200 rounded-full inline-block " data-bind="text: jobTitle">
       {{ item.fields.jobTitle}}      
       </div>
-      <div data-bind="text: companyName" class="font-bold">
+      <details class="text-sm divide-y-2">
+      <summary data-bind="text: companyName" class="font-bold">
       {{ item.fields.companyName}}
-      </div>
-      <div class="text-sm divide-y-2">
+      </summary>
       {%- markdown -%}
       {{item.fields.responsibilities  | safe}}{.text-gray-600 .divide-y-2 .text-lg}
       {%- endmarkdown -%}
-      </div>    
+      </details>    
       
       </div>
     </article>
     {% endfor %}
 </aside>
-  </main>
-  </div>
-{% endblock %}

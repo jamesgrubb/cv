@@ -2,7 +2,87 @@
 @tailwind components;
 @tailwind utilities;
 
-
-    p{
-        @apply mb-1;
+@font-face {
+    
+    font-family: "GT-Super-Regular";
+    font-style: normal;
+    font-weight: 400;
+    src: url("/fonts/GT-Super-Display-Regular.woff2") format("woff2");
+    font-display: swap;
+    
+}
+        @font-face {
+font-family: "GT-Super-Italic";
+font-style: normal;
+font-weight: 400;
+src: url("/fonts/GT-Super-Display-Bold-Italic.woff2") format("woff2");
+font-display: swap;
+}
+@font-face{
+font-family: "GT-America-Expanded";
+    font-style: normal;
+    font-weight: 400;
+    src: url("/fonts/GT-America-Expanded-Light.woff2") format("woff2");
+    font-display: swap;
+}
+@font-face{
+    font-family: "GT-Alpina-Extended";
+    font-style: normal;
+    font-weight: 400;
+    src: url("/fonts/GT-Alpina-Extended-Light-Trial.woff2") format("woff2");
+    font-display: swap;
+}
+    .intro{
+        @apply mb-4;
+        @apply text-3xl;
+        @apply text-gray-600;
+        font-family: 'Gt-Alpina-Extended', serif;
     }
+    .body-text{
+    @apply mb-8;
+    @apply text-gray-600;
+    column-count: 2
+}
+.body-text p{
+    @apply mb-3;
+    @apply text-sm
+    
+}
+    
+.title {
+    font-family: 'GT-Super-Italic', serif;
+    font-size: clamp(2rem, 20vw, 30vw);    
+}
+.expanded{
+    font-family: 'GT-America-Expanded', serif;
+}
+.extended{
+    font-family: 'GT-American-Extended', serif;
+}
+.word{
+    color: var(--clr);
+}
+
+.letter h3, .letter h2 {
+    @apply text-2xl;
+    @apply mt-6;
+    font-family: 'GT-Alpina-Extended', serif;
+
+}
+
+.letter h2{
+    @apply text-4xl;
+    @apply uppercase;
+    @apply leading-none;
+}
+.letter p {
+    @apply my-3;
+    
+}
+
+.letter li{
+    @apply my-3;
+    @apply pb-3;
+    @apply border-gray-500;
+    @apply border-b;
+}

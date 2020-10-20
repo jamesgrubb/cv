@@ -10,7 +10,11 @@ module.exports = function (eleventyConfig) {
     html: true,
     breaks: true,
     linkify: true
-  }).use(markdownItAttrs);
+  }).use(markdownItAttrs,{
+    leftDelimiter: '{',
+  rightDelimiter: '}',
+  allowedAttributes: [] 
+  });
 
   eleventyConfig.addPlugin(pluginSeo, require("./_data/seo.json"))
 
@@ -26,7 +30,7 @@ module.exports = function (eleventyConfig) {
     
     return parseIso(value,  { additionalDigits: 1 })
    });
-
+   eleventyConfig.addPassthroughCopy({'./fonts':'./fonts'})
 
   eleventyConfig.setUseGitIgnore(false);
 

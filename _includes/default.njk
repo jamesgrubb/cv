@@ -16,12 +16,12 @@
     <script src="/js/alpine.js?v={% version %}"></script>
   </head>
   <body class="text-gray-900 h-full">
-  <div class="container sm:flex h-full">
+  
     {% block content %}
           
         {{ content | safe }}
       
     {% endblock %}
-    </div>
+  
   </body>
 </html>

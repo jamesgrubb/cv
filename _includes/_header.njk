@@ -1,10 +1,10 @@
-{% set me = globals.name %}
-    <p>{{ me }} </p>
-<address class="flex flex-col not-italic">
-{% for dets in globals.address %}
-    <a href="mailto:{{ dets.email }}">{{ dets.email }}</a>    
-    <a href="tel:+44{{ dets.phone }}">0{{ dets.phone }}</a>    
-    <a href="{{ dets.web }}">{{ dets.web | prettyUrl }}</a>    
-{% endfor %}
-</address>
+<h1 class="title text-center flex flex-col justify-center leading-none">
+{% for title in globals.titles %}
+    
+    
+    <span class="word" style="--clr:{{ title.color }}" class="word my-0">{{ title.word }}</span>
+    
+    
+    {% endfor %}
+</h1>
 

@@ -1,9 +1,13 @@
 {
+    "titles":[
+        {"word":"It's all", "color":"#feea00"},
+        {"word":"about", "color":"#392c81"},
+        {"word":"me", "color":"#f0c4da"}
+         ],                       
     "name":"James Grubb",
     "address":[{
         "email":"james@jamesgrub.co.uk",
         "phone":"7974453650",
         "web":"https://jamesgrubb.co.uk"
         }]
-
 }

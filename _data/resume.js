@@ -7,6 +7,7 @@ var base = Airtable.base('app8XPj1PDczqby8i');
 const table = base('resume')
 const lettersTable = base('applications')
 
+
 const getApplications = async () => {
     try{
         const letters = await lettersTable.select().firstPage()
@@ -32,9 +33,21 @@ const getJobs = async () => {
     }
 }
 
+
 module.exports = async function () {
+    
+    // const minifyRecords = ( record ) => {
+    //     [...record].map(rc =>{
+    //         return rc.length
+    //     })
+    //     }
+    
+    
     let applications = await getApplications()    
     let jobs = await getJobs();
-    console.log(applications,jobs)
+
+    console.log(applications)
+    // console.log(jobs)
+    
     return {jobs: jobs, applications: applications};
 };
